@@ -1,0 +1,5 @@
+*.logs
+*.swp
+*.hcl
+*.tfstate
+*.backup
