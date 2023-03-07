@@ -10,6 +10,17 @@ variable "VOL_NAME" {
 
 }
 
+variable "VOL_DESTINY" {
+   type    = string
+   default = "/storage/libvirt-volumes/"
+}
+
+variable "IMG_SOURCE" {
+   type    = string
+   default = "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
+   #default = "/storage/ubuntu_core/focal-server-cloudimg-amd64.img"
+}
+
 variable "MEMORY_SIZE" {
     type = string  
     default = 1024*2 
@@ -30,9 +41,8 @@ variable "VM_HOSTNAME" {
 }
 
 variable "VM_IMG_URL" {
-    #default = "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
     type    = string
-    default = "/home/igor.oliveira/meteorologia_kvms/ubuntu-core-image/focal-server-cloudimg-amd64.img"
+    default = "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
 }
 variable "VM_VOLUME_SIZE" {
     type    = number

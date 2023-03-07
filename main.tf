@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "libvirt" {
-   uri = "qemu+ssh://root@150.165.83.92/system" #destino da vm
+   uri = "///" #destino da vm
 }
 
 
@@ -17,14 +17,15 @@ provider "libvirt" {
 resource "libvirt_pool" "p-ubuntu" {
   name = "${var.POOL_NAME}"
   type = "dir"
-  path = "/home/igor.oliveira/volumes_kvm"
+  path = "${var.VOL_DESTINY}"
 }
 
 resource "libvirt_volume" "ubuntu-qcow2" {
   count  = length(var.vms)
   name   = "${var.VOL_NAME}_${count.index}"
   pool   = libvirt_pool.p-ubuntu.name
-  source = "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
+  #source = "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
+  source = "${var.IMG_SOURCE}"
   format = "qcow2"
 }
 
